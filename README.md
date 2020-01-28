@@ -4,5 +4,5 @@ It has preconfigured authorization system and RESTful API to be used with https:
 ```
 clone repository
 npm install OR yarn
-npm run serve
+npm start
 ```
