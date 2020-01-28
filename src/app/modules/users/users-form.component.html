@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet">
+      <div class="portlet-header">
+        <div class="portlet-header-title">
+          <h3>{{'pages.usersForm.title' | translate}}</h3>
+        </div>
+        <div class="portlet-actions">
+          <a [routerLink]="'../list'" class="btn btn-sm btn-warning">
+            {{'commons.cancel'  | translate}}
+          </a>
+          <button [disabled]="!userForm.valid" (click)="save()" class="btn btn-sm btn-primary">
+            {{'commons.save'  | translate}}
+          </button>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <form #userForm="ngForm">
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="firstName">{{'commons.firstName' | translate}}</label>
+              <input [ngClass]="{ 'has-error': firstName.errors }" class="form-control"
+                     id="firstName" type="text" #firstName="ngModel" required name="firstName" [(ngModel)]="user.firstName">
+              <span class="error-feed" *ngIf="firstName?.errors?.required">{{'validations.required' | translate}}</span>
+            </div>
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="lastName">{{'commons.lastName' | translate}}</label>
+              <input [ngClass]="{ 'has-error': lastName.errors }" required class="form-control"
+                     id="lastName" type="text" #lastName="ngModel" name="lastName" [(ngModel)]="user.lastName">
+              <span class="error-feed"
+                    *ngIf="lastName?.errors?.required">{{'validations.required' | translate}}</span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="email">{{'commons.email' | translate}}</label>
+              <input [ngClass]="{ 'has-error': email.errors }" required name="email" class="form-control"
+                     pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+                     id="email" type="text" #email="ngModel" [(ngModel)]="user.email">
+              <span class="error-feed"
+                    *ngIf="email?.errors?.required">{{'validations.required' | translate}}</span>
+              <span class="error-feed" *ngIf="email?.errors?.pattern">{{'validations.email' | translate}}</span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="password">{{'commons.password' | translate}}</label>
+              <input [ngClass]="{ 'has-error': password.errors }" class="form-control"  name="password" [required]="index === -1"
+                     (input)="checkMin(passwordMinLength, $event, password);"
+                     id="password" type="password" #password="ngModel" [(ngModel)]="user.password">
+              <span class="error-feed"
+                    *ngIf="password?.errors?.required">{{'validations.required' | translate}}</span>
+              <span class="error-feed"
+                    *ngIf="password?.errors?.checkMin">{{'validations.minLength' | translate: {value: passwordMinLength} }}</span>
+            </div>
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label"
+                     for="confirmPassword">{{'commons.confirmPassword' | translate}}</label>
+              <input [ngClass]="{ 'has-error': confirmPassword.errors }" class="form-control"
+                     id="confirmPassword" type="password" required name="confirmPassword"
+                     [required]="index === -1 || user.password"
+                     (input)="sameAs($event, confirmPassword, user.password)"
+                     #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword">
+              <span class="error-feed"
+                    *ngIf="confirmPassword?.errors?.required">{{'validations.required' | translate}}</span>
+              <span class="error-feed"
+                    *ngIf="confirmPassword?.errors?.sameAs">{{'validations.confirmPassword' | translate}}</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

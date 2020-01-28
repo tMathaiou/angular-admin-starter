@@ -1,0 +1,11 @@
+.table td, .table th {
+  vertical-align: top;
+  border-top: 0;
+  font-weight: 500;
+  color: #74788d;
+  padding: .75rem;
+}
+
+.table tbody tr {
+  border-bottom: 1px dashed #ebedf2;
+}

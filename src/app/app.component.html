@@ -1,0 +1,17 @@
+<div id="app" *ngIf="loggedIn">
+  <app-loader [loading]="loading"></app-loader>
+  <div id="app-wrapper">
+    <app-menu-sidebar></app-menu-sidebar>
+    <div [ngStyle]="{paddingLeft: isSidebarOpen ? '0px' : '100px'}" class="app-view">
+      <app-top-bar></app-top-bar>
+      <div [ngStyle]="{paddingLeft: isSidebarOpen ? '270px' : ''}" class="view-wrapper">
+        <div class="view-container">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!loggedIn">
+  <app-login></app-login>
+</div>

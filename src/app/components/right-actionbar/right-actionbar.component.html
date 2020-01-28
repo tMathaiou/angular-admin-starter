@@ -1,0 +1,19 @@
+<div class="right-sidebar">
+  <div class="language-selector">
+    <mat-form-field>
+      <mat-select [(value)]="langID" (selectionChange)="setSelectedLanguage($event)">
+        <mat-option *ngFor="let lang of stateLanguages" [value]="lang.id">
+          <img [src]="lang.imageSrc" alt="img" class="option__image">
+          <span class="option__desc">
+            <span class="option__title">{{ lang.text }}</span>
+          </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="logout-wrapper">
+    <button (click)="logout()" class="btn-logout">
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+    </button>
+  </div>
+</div>

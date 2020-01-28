@@ -1,0 +1,181 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9fc;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 300;
+  font-family: Poppins, Helvetica, sans-serif;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.portlet {
+  height: calc(100% - 20px);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  box-shadow: 0 0 13px 0 rgba(82, 63, 105, 0.05);
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.portlet-header {
+  transition: height 0.3s;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 0 0 25px;
+  border-bottom: 1px solid #ebedf2;
+  min-height: 60px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.portlet-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.portlet-header-title h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #48465b;
+}
+
+.portlet-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 4px;
+}
+
+.portlet-actions {
+  padding-top: 15px;
+}
+
+.portlet-actions button {
+  margin: 0 2.5px;
+}
+
+.table-responsive {
+  overflow-y: hidden;
+}
+
+.btn-edit {
+  background-color: rgba(34, 185, 255, 0.1);
+  color: #22b9ff;
+}
+
+.btn-delete {
+  background-color: #cc4b4c;
+  color: #22b9ff;
+}
+
+.actions-td button {
+  margin-left: 5px;
+}
+
+.has-error {
+  border-color: #fd397a;
+  padding-right: calc(1.5em + 1.3rem);
+  background-image: url("assets/images/error.svg");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.325rem) center;
+  background-size: calc(0.75em + 0.65rem) calc(0.75em + 0.65rem);
+}
+
+.error-feed {
+  display: block;
+  font-weight: 400;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #fd397a;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.menu-nav-icon {
+  width: 40%;
+  flex: 0 0 35px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  color: #b8bac3;
+}
+
+img.option__image {
+  width: 16px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.option__desc {
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.table-list{
+  width: 100%;
+}
+
+.btn-ico, .btn-ico:hover, .btn-ico:visited{
+  color: #fff!important;
+}

@@ -1,0 +1,23 @@
+<div [ngClass]="{hover: isHovering || isSidebarOpen}" (mouseout)="isHovering = false"
+     (mouseover)="isHovering = true"
+     class="menu-sidebar">
+  <div class="menu-sidebar-wrapper">
+    <perfect-scrollbar class="menu-sidebar-scroller">
+      <ul class="menu-nav">
+        <li [ngClass]="[currentPage.includes(item.name) ? 'active' : '', 'menu-nav-item']"
+            *ngFor="let item of menu">
+          <ng-container *ngIf="item.menu">
+            <a [routerLink]="item.urlPath" class="menu-nav-link">
+              <fa-icon [icon]="item.icon"  [styles]="{color: currentPage.includes(item.name) ? primaryColor : ''}"
+                       [classes]="['menu-nav-icon']"></fa-icon>
+              <span [ngClass]="{hidden: !isHovering && !isSidebarOpen}" [ngStyle]="{color: primaryColor}"
+                    class="menu-nav-text">
+                {{ 'menu.' + item.name | translate }}
+              </span>
+            </a>
+          </ng-container>
+        </li>
+      </ul>
+    </perfect-scrollbar>
+  </div>
+</div>

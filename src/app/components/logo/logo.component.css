@@ -1,0 +1,18 @@
+.logo {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 100px;
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: row;
+  padding: 0 25px;
+  height: 80px;
+  justify-content: center;
+  align-self: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
