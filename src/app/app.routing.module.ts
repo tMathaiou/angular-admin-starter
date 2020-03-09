@@ -17,7 +17,7 @@ export const APP_ROUTES: any = [
     name: 'users',
     icon: faUsers,
     menu: true,
-    loadChildren: './../app/modules/users/users.module#UsersModule'
+    loadChildren: () => import('./../app/modules/users/users.module').then(m => m.UsersModule)
   },
 ];
 
