@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     });
 
-    translateService.use(localStorage.getItem('language') || 'el');
+    translateService.use(localStorage.getItem('language') || 'en');
   }
 
   public ngOnInit(): void {

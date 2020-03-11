@@ -1,6 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "plugins": [
+      { "transform": "ts-transformer-keys/transformer" }
+    ],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

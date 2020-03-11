@@ -28,6 +28,10 @@ import {FormsModule} from '@angular/forms';
 import {AuthGuard} from './shared/auth.guard';
 import {ErrorInterceptor} from './shared/http.interceptor';
 import {LoaderComponent} from './components/loader/loader.component';
+import {NgxsModule} from '@ngxs/store';
+import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
+import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {AppState} from './store/state';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -61,6 +65,9 @@ export function getCulture(): string {
     BrowserModule,
     FontAwesomeModule,
     SweetAlert2Module.forRoot(),
+    NgxsModule.forRoot([AppState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
     ToastrModule.forRoot(),
     RouterModule,
     PerfectScrollbarModule,
