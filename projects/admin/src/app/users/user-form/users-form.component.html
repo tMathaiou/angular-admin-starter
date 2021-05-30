@@ -1,0 +1,152 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet">
+      <div class="portlet-header">
+        <div class="portlet-header-title">
+          <h3>{{ 'pages.usersForm.title' | translate }}</h3>
+        </div>
+        <div class="portlet-actions">
+          <a [routerLink]="'../list'" class="btn btn-sm btn-warning">
+            {{ 'commons.cancel' | translate }}
+          </a>
+          <button
+            (click)="save()"
+            class="btn btn-sm btn-primary"
+          >
+            {{ 'commons.save' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <form [formGroup]="userForm">
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="firstName">{{
+                'commons.firstName' | translate
+              }}</label>
+              <input
+                [ngClass]="{
+                  'has-error': firstName.touched && firstName.errors
+                }"
+                class="form-control"
+                id="firstName"
+                type="text"
+                name="firstName"
+                formControlName="firstName"
+              />
+              <span
+                class="error-feed"
+                *ngIf="firstName.touched && firstName?.errors?.required"
+                >{{ 'validations.required' | translate }}</span
+              >
+            </div>
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="lastName">{{
+                'commons.lastName' | translate
+              }}</label>
+              <input
+                [ngClass]="{ 'has-error': lastName.touched && lastName.errors }"
+                class="form-control"
+                id="lastName"
+                type="text"
+                name="lastName"
+                formControlName="lastName"
+              />
+              <span
+                class="error-feed"
+                *ngIf="lastName.touched && lastName?.errors?.required"
+                >{{ 'validations.required' | translate }}</span
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="email">{{
+                'commons.email' | translate
+              }}</label>
+              <input
+                [ngClass]="{ 'has-error': email.touched && email.errors }"
+                name="email"
+                class="form-control"
+                id="email"
+                type="text"
+                formControlName="email"
+              />
+              <span
+                class="error-feed"
+                *ngIf="email.touched && email?.errors?.required"
+                >{{ 'validations.required' | translate }}</span
+              >
+              <span
+                class="error-feed"
+                *ngIf="email.touched && email?.errors?.pattern"
+                >{{ 'validations.email' | translate }}</span
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="password">{{
+                'commons.password' | translate
+              }}</label>
+              <input
+                [ngClass]="{ 'has-error': password.touched && password.errors }"
+                class="form-control"
+                name="password"
+                (input)="checkMin()"
+                [required]="index === -1"
+                id="password"
+                type="password"
+                formControlName="password"
+              />
+              <span
+                class="error-feed"
+                *ngIf="password.touched && password?.errors?.required"
+                >{{ 'validations.required' | translate }}</span
+              >
+              <span
+                class="error-feed"
+                *ngIf="password.touched && password?.errors?.checkMin"
+                >{{
+                  'validations.minLength'
+                    | translate: { value: passwordMinLength }
+                }}</span
+              >
+            </div>
+            <div class="col-lg-6 col-xl-6">
+              <label class="col-form-label" for="confirmPassword">{{
+                'commons.confirmPassword' | translate
+              }}</label>
+              <input
+                [ngClass]="{
+                  'has-error': confirmPassword.touched && confirmPassword.errors
+                }"
+                class="form-control"
+                id="confirmPassword"
+                type="password"
+                name="confirmPassword"
+                [required]="index === -1 || password.value"
+                (input)="sameAs()"
+                formControlName="confirmPassword"
+              />
+              <span
+                class="error-feed"
+                *ngIf="
+                  confirmPassword.touched && confirmPassword?.errors?.required
+                "
+                >{{ 'validations.required' | translate }}</span
+              >
+              <span
+                class="error-feed"
+                *ngIf="
+                  confirmPassword.touched && confirmPassword?.errors?.sameAs
+                "
+                >{{ 'validations.confirmPassword' | translate }}</span
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

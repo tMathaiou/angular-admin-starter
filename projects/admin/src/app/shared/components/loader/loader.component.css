@@ -1,0 +1,52 @@
+.v-spinner {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+.overlay-wrapper {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.15);
+}
+
+.v-scale {
+  background-color: #a91731;
+  height: 35px;
+  width: 4px;
+  margin: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  animation-name: v-scaleStretchDelay;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes v-scaleStretchDelay {
+  0%,
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+  }
+}
+
+@keyframes v-scaleStretchDelay {
+  0%,
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+  }
+  50% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+  }
+}

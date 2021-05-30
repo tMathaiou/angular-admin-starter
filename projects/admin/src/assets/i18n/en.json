@@ -1,0 +1,57 @@
+{
+  "languages": {
+    "english": "English",
+    "greek": "Greek"
+  },
+  "menu": {
+    "home": "Home",
+    "users": "Users",
+    "usersFormNew": "Add user",
+    "usersFormEdit": "Edit user"
+  },
+  "pages": {
+    "home": {
+      "title": "Home Title",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled."
+    },
+    "users": {
+      "title": "Users List"
+    },
+    "usersForm": {
+      "title": "Users Form"
+    }
+  },
+  "commons": {
+    "add_new": "Add New",
+    "id": "ID",
+    "actions": "Actions",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "delete_title": "Are you sure?",
+    "cant_revert": "You won't be able to revert this!",
+    "accept_delete": "Yes, delete it!",
+    "cancel": "Cancel",
+    "save": "Save",
+    "sign_in": "Sign In",
+    "wrong_credentials": "Wrong email or password!",
+    "next": "Next",
+    "prev": "Previous",
+    "clear_filters": "Clear Filters"
+  },
+  "validations": {
+    "required": "Field is required",
+    "email": "Not a valid email",
+    "minLength": "Minimum length is {{value}} chars",
+    "confirmPassword": "Confirm password doesn't match password"
+  },
+  "messages": {
+    "already_updated": "There is some new updated in this page please check for differences!",
+    "entity_deleted": "The entity has been deleted!",
+    "access_denied": "Access Denied",
+    "dont_exist": "The user doesn't exist",
+    "something_went_wrong": "Some went really wrong!"
+  }
+}

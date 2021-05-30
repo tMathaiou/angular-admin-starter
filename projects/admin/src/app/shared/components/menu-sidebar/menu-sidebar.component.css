@@ -1,0 +1,100 @@
+.menu-sidebar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  z-index: 98;
+  max-width: 100%;
+  background-color: #fff;
+  box-shadow: 13px -2px 27px -12px rgba(41, 50, 66, 0.075);
+}
+
+.menu-sidebar-scroller {
+  margin: 0;
+  padding: 15px 0;
+  background-color: #fff;
+  position: relative;
+  height: 100%;
+  max-height: 90vh;
+}
+
+.menu-sidebar.hover {
+  width: 250px;
+  transition: all .3s ease;
+}
+
+.menu-nav {
+  padding: 15px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-nav-item {
+  position: relative;
+  margin: 2px 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  float: none;
+  padding: 0;
+}
+
+.menu-nav-link {
+  padding: 0 32px;
+  cursor: pointer;
+  min-height: 60px;
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  margin: 0;
+  text-decoration: none;
+  position: relative;
+  outline: 0;
+}
+
+.menu-nav-text {
+  font-weight: 400;
+  font-size: 1rem;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0;
+  display: flex;
+}
+
+.menu-nav-text.hidden {
+  display: none;
+}
+
+.menu-nav-item.active {
+  transition: background-color .3s;
+}
+
+.menu-nav-item.active a {
+  background-color: #f5f6fc;
+}
+
+.ng-fa-icon{
+  display: flex;
+  width: 40%;
+  flex: 0 0 50px;
+  align-items: center;
+}
+
+
+@media (max-width: 600px) {
+  .slide {
+    animation: slide 1s forwards;
+    animation-delay: 2s;
+  }
+
+  @keyframes slide {
+    100% {
+      left: 0;
+    }
+  }
+}

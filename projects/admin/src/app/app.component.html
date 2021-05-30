@@ -1,0 +1,23 @@
+<div id="app" *ngIf="loggedIn$ | async">
+  <angular-admin-loader></angular-admin-loader>
+  <div id="app-wrapper">
+    <angular-admin-menu-sidebar></angular-admin-menu-sidebar>
+    <div
+      [ngStyle]="{ paddingLeft: (isSidebarOpen$ | async) || isSmallScreen ? '0px' : '100px' }"
+      class="app-view"
+    >
+      <angular-admin-top-bar></angular-admin-top-bar>
+      <div
+        [ngStyle]="{ paddingLeft: (isSidebarOpen$ | async) && !isSmallScreen ? '270px' : '' }"
+        class="view-wrapper"
+      >
+        <div class="view-container">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="(loggedIn$ | async) === false">
+  <angular-admin-login></angular-admin-login>
+</div>

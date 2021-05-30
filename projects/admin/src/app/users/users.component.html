@@ -1,0 +1,145 @@
+<div class="table-list">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portlet">
+        <div class="portlet-header">
+          <div class="portlet-header-title">
+            <h3>{{ 'pages.users.title' | translate }}</h3>
+          </div>
+          <div class="portlet-actions">
+            <button class="btn btn-sm btn-primary" [routerLink]="'../new'">
+              {{ 'commons.add_new' | translate }}
+            </button>
+          </div>
+        </div>
+        <div class="portlet-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>{{ 'commons.id' | translate }}</th>
+                  <th>{{ 'commons.firstName' | translate }}</th>
+                  <th>{{ 'commons.lastName' | translate }}</th>
+                  <th>{{ 'commons.email' | translate }}</th>
+                  <th class="text-center">
+                    {{ 'commons.actions' | translate }}
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      angularAdminDebounce
+                      [debounceTime]="debounceTime"
+                      (debounceEvent)="fetchUsers()"
+                      class="form-control"
+                      type="text"
+                      [ngModel]="(filters$ | async).userId"
+                      (ngModelChange)="changeFilters($event, 'userId')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      angularAdminDebounce
+                      [debounceTime]="debounceTime"
+                      (debounceEvent)="fetchUsers()"
+                      class="form-control"
+                      type="text"
+                      [ngModel]="(filters$ | async).userFirstName"
+                      (ngModelChange)="changeFilters($event, 'userFirstName')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      angularAdminDebounce
+                      [debounceTime]="debounceTime"
+                      (debounceEvent)="fetchUsers()"
+                      class="form-control"
+                      type="text"
+                      [ngModel]="(filters$ | async).userLastName"
+                      (ngModelChange)="changeFilters($event, 'userLastName')"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      angularAdminDebounce
+                      [debounceTime]="debounceTime"
+                      (debounceEvent)="fetchUsers()"
+                      class="form-control"
+                      type="text"
+                      [ngModel]="(filters$ | async).userEmail"
+                      (ngModelChange)="changeFilters($event, 'userEmail')"
+                    />
+                  </td>
+                  <td class="text-center">
+                    <button
+                      (click)="clearFilters()"
+                      class="btn btn-sm btn-primary"
+                    >
+                      {{ 'commons.clear_filters' | translate }}
+                    </button>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let user of users$
+                      | async
+                      | paginate
+                        : {
+                            itemsPerPage: (pagination$ | async).size,
+                            currentPage: (pagination$ | async).page,
+                            totalItems: (pagination$ | async).totalElements
+                          }
+                  "
+                >
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.firstName }}</td>
+                  <td>{{ user.lastName }}</td>
+                  <td>{{ user.email }}</td>
+                  <td class="text-center actions-td">
+                    <a
+                      class="btn btn-sm btn-primary btn-ico"
+                      [routerLink]="'../' + user.id"
+                    >
+                      <fa-icon [icon]="iconEdit"></fa-icon>
+                    </a>
+                    <button
+                      [swal]="{
+                        title: 'commons.delete_title' | translate,
+                        text: 'commons.cant_revert' | translate,
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'commons.accept_delete' | translate,
+                        cancelButtonText: 'commons.cancel' | translate,
+                        reverseButtons: true
+                      }"
+                      (confirm)="deleteUser(user.id)"
+                      class="btn btn-sm btn-danger"
+                    >
+                      <fa-icon [icon]="iconTrash"></fa-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-right">
+              <pagination-controls
+                (pageChange)="pageChanged($event)"
+                class="pagination"
+                maxSize="7"
+                directionLinks="true"
+                autoHide="false"
+                responsive="true"
+                [previousLabel]="'commons.prev' | translate"
+                [nextLabel]="'commons.next' | translate"
+              >
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

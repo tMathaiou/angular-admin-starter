@@ -1,0 +1,57 @@
+{
+  "languages": {
+    "english": "Αγγλικά",
+    "greek": "Ελληνικά"
+  },
+  "menu": {
+    "home": "Αρχική",
+    "users": "Χρήστες",
+    "usersFormNew": "Προσθήκη χρήστη",
+    "usersFormEdit": "Επεξεργασία χρήστη"
+  },
+  "pages": {
+    "home": {
+      "title": "Τίτλος Αρχικής",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled."
+    },
+    "users": {
+      "title": "Λίστα Χρηστών"
+    },
+    "usersForm": {
+      "title": "Φόρμα Χρήστη"
+    }
+  },
+  "commons": {
+    "add_new": "Προσθήκη νέου",
+    "id": "ID",
+    "actions": "Ενέργειες",
+    "firstName": "Όνομα",
+    "lastName": "Επώνυμο",
+    "email": "Email",
+    "password": "Κωδικός",
+    "confirmPassword": "Επιβεβαίωση Κωδικού",
+    "delete_title": "Είσαι σίγουρος;",
+    "cant_revert": "Δεν θα μπορείτε να το επαναφέρετε!",
+    "accept_delete": "Ναι, διαγράψτε το!",
+    "cancel": "Ακύρωση",
+    "save": "Αποθήκευση",
+    "sign_in": "Σύνδεση",
+    "wrong_credentials": "Λάθος email ή κωδικός!",
+    "next": "Επόμενο",
+    "prev": "Προηγούμενο",
+    "clear_filters": "Καθάρισμα Φίλτρων"
+  },
+  "validations": {
+    "required": "Το πεδίο είναι υποχρεωτικό",
+    "email": "Μη έγκυρο email",
+    "minLength": "Το ελάχιστο μήκος είναι {{value}} χαρακτήρες",
+    "confirmPassword": "Ο κωδικός δεν ταιριάζει με την επιβεβαίωση κωδικού"
+  },
+  "messages": {
+    "already_updated": "Υπάρχουν κάποιες νέες ενημερώσεις σε αυτή τη σελίδα παρακαλώ ελέγξτε για διαφορές!",
+    "entity_deleted": "Η εγγραφή έχει διαγραφεί!",
+    "access_denied": "Δεν επιτρέπεται η πρόσβαση",
+    "dont_exist": "Ο χρήστης δεν υπάρχει",
+    "something_went_wrong": "Κάτι πήγε στραβά!"
+  }
+}
