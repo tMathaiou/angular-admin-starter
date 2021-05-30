@@ -1,27 +1,21 @@
-# AngularAdminStarter
+# Angular Admin Starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+#### 1. Get the latest version
 
-## Development server
+You can start by cloning the latest version of Angular Admin Starter on your
+local machine by running:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```shell
+$ git clone https://github.com/tMathaiou/angular-admin-starter.git
+$ cd angular-admin-starter
+```
+#### 2. Run `yarn install`
 
-## Code scaffolding
+This will install both run-time project dependencies and developer tools listed
+in [package.json](./package.json) file.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### 3. Run `yarn start`
 
-## Build
+#### 4. Run `yarn node-red`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This will start a node-red server that will mock a real API server
