@@ -288,7 +288,6 @@ describe('UserState', () => {
         store.dispatch(new SaveUser({} as User));
 
         expect(usersService.save).toHaveBeenCalledWith({});
-        expect(router.navigateByUrl).toHaveBeenCalledWith('/users/list');
       });
 
       it('should fail to call usersService save with error', () => {
@@ -315,7 +314,6 @@ describe('UserState', () => {
         store.dispatch(new UpdateUser({} as User));
 
         expect(usersService.update).toHaveBeenCalledWith({});
-        expect(router.navigateByUrl).toHaveBeenCalledWith('/users/list');
       });
 
       it('should fail to call usersService update with error', () => {

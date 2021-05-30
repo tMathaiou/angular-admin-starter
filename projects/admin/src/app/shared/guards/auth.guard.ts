@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  RouterStateSnapshot
-} from '@angular/router';
+import { CanLoad, Route, UrlSegment } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Logout } from '../../state/app.actions';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanLoad {
   constructor(private store: Store) {}
 
-  public canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canLoad(route: Route, segments: UrlSegment[]): boolean {
     const token = localStorage.getItem('token');
 
     if (!token) {

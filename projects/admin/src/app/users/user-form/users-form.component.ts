@@ -138,11 +138,11 @@ export class UsersFormComponent implements OnInit, OnDestroy {
     if (this.index > -1 && this.user) {
       this.store.dispatch(
         new UpdateUser({
+          ...this.user,
           firstName: this.firstName.value,
           lastName: this.lastName.value,
           password: this.password.value,
-          email: this.email.value,
-          ...this.user
+          email: this.email.value
         })
       );
     } else {

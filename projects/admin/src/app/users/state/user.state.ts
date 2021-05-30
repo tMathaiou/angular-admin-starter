@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import {
   Action,
   NgxsAfterBootstrap,
@@ -16,8 +16,6 @@ import { UsersService } from '../users.service';
 import { catchError, tap } from 'rxjs/operators';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { List } from '../../shared/interfaces/list';
-import { Logout } from '../../state/app.actions';
-import { AppStateModel } from '../../state/app.state';
 import {
   DeleteUser,
   FetchUser,
@@ -61,7 +59,8 @@ export class UserState implements NgxsAfterBootstrap {
     private translateService: TranslateService,
     private usersService: UsersService,
     private router: Router,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private ngZone: NgZone
   ) {}
 
   @Selector([UserState])
@@ -88,24 +87,6 @@ export class UserState implements NgxsAfterBootstrap {
     context: StateContext<UserStateModel>
   ): Subscription {
     return this.fetchUsersFn(context).subscribe();
-  }
-
-  private fetchUsersFn({
-    patchState,
-    getState
-  }: StateContext<UserStateModel>): Observable<List<User>> {
-    const { filters, pagination } = getState();
-    return this.usersService.list({ ...filters, ...pagination }).pipe(
-      tap((list) => {
-        return patchState({
-          users: list.rows,
-          pagination: {
-            ...pagination,
-            totalElements: list.count
-          }
-        });
-      })
-    );
   }
 
   @Action(SetPage)
@@ -188,11 +169,14 @@ export class UserState implements NgxsAfterBootstrap {
 
   @Action(SaveUser)
   public saveUser(
-    {}: StateContext<UserStateModel>,
+    { dispatch }: StateContext<UserStateModel>,
     { user }: SaveUser
   ): Observable<User> {
     return this.usersService.save(user).pipe(
-      tap(() => this.router.navigateByUrl('/users/list')),
+      tap(async () => {
+        await dispatch(new FetchUsers()).toPromise();
+        await this.ngZone.run(() => this.router.navigateByUrl('/users/list'));
+      }),
       catchError((err) => {
         console.error(err);
         this.toaster.error(
@@ -205,11 +189,14 @@ export class UserState implements NgxsAfterBootstrap {
 
   @Action(UpdateUser)
   public updateUser(
-    {}: StateContext<UserStateModel>,
+    { dispatch }: StateContext<UserStateModel>,
     { user }: UpdateUser
   ): Observable<User> {
     return this.usersService.update(user).pipe(
-      tap(() => this.router.navigateByUrl('/users/list')),
+      tap(async () => {
+        await dispatch(new FetchUsers()).toPromise();
+        await this.ngZone.run(() => this.router.navigateByUrl('/users/list'));
+      }),
       catchError((err) => {
         console.error(err);
         this.toaster.error(
@@ -233,6 +220,24 @@ export class UserState implements NgxsAfterBootstrap {
           this.translateService.instant('messages.something_went_wrong')
         );
         return EMPTY;
+      })
+    );
+  }
+
+  private fetchUsersFn({
+    patchState,
+    getState
+  }: StateContext<UserStateModel>): Observable<List<User>> {
+    const { filters, pagination } = getState();
+    return this.usersService.list({ ...filters, ...pagination }).pipe(
+      tap((list) => {
+        return patchState({
+          users: list.rows,
+          pagination: {
+            ...pagination,
+            totalElements: list.count
+          }
+        });
       })
     );
   }

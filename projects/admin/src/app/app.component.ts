@@ -42,8 +42,9 @@ export class AppComponent implements OnInit, OnDestroy {
           return this.router.navigateByUrl('/view');
         }
       });
-
-    this.translateService.use(localStorage.getItem('language') || 'el');
+    const language = localStorage.getItem('language') || 'el';
+    localStorage.setItem('language', language);
+    this.translateService.use(language);
   }
 
   public ngOnDestroy(): void {

@@ -126,6 +126,7 @@
             </table>
             <div class="text-right">
               <pagination-controls
+                *ngIf="(users$ | async).length > 0"
                 (pageChange)="pageChanged($event)"
                 class="pagination"
                 maxSize="7"

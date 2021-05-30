@@ -125,7 +125,7 @@
                 id="confirmPassword"
                 type="password"
                 name="confirmPassword"
-                [required]="index === -1 || password.value"
+                [required]="index === -1 || !!password.value "
                 (input)="sameAs()"
                 formControlName="confirmPassword"
               />

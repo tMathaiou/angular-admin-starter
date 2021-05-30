@@ -8,11 +8,9 @@ const HOME_ROUTES: Routes = [
   {
     path: '',
     component: HomeRouterComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: 'view',
-        canActivate: [AuthGuard],
         urlPath: '/view',
         name: 'home',
         component: HomeComponent
