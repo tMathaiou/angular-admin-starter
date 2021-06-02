@@ -19,3 +19,9 @@ in [package.json](./package.json) file.
 #### 4. Run `yarn node-red`
 
 This will start a node-red server that will mock a real API server
+To login to admin panel check the stub file [users.json](node-red/stubs/users.json)
+or use 
+```
+  email: test1@email.com,
+  password: user_1
+```
